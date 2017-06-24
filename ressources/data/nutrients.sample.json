@@ -1,0 +1,13 @@
+{
+  "nutrients" : [
+    {
+      "name": "Calcium",
+      "food": ["almonds", "apricots", "avocados"],
+      "notes": "Better raw"
+    },
+    {
+      "name": "Iodine",
+      "food": ["apples", "artichokes", "asparagus", "beans"]
+    }
+  ]
+}
