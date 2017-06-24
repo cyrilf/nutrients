@@ -1,5 +1,17 @@
 {
   "expo": {
-    "sdkVersion": "18.0.0"
+    "sdkVersion": "18.0.0",
+
+    "name": "Nutrients",
+    "slug" : "nutrients",
+    "primaryColor": "#dbf1ca",
+    "loading": {
+      "backgroundColor": "#dbf1ca",
+      "hideExponentText": "true"
+    },
+    "androidStatusBarColor": "#dbf1ca",
+    "androidStatusBar": {
+      "backgroundColor": "#dbf1ca"
+    }
   }
 }
