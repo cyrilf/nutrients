@@ -1,7 +1,7 @@
 import Expo from 'expo'
 import React from 'react'
 
-import Root from './src/containers/Root'
+import Root from 'containers/Root'
 
 export default class App extends React.Component {
   constructor() {
