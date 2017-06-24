@@ -1,17 +1,30 @@
 import React, { Component } from 'react'
 import { Text } from 'react-native'
-import { Footer, FooterTab, Button } from 'native-base'
+import PropTypes from 'prop-types'
+import { Footer as FooterBase, FooterTab, Button } from 'native-base'
 
-export default class HeaderExample extends Component {
+class Footer extends Component {
   render() {
     return (
-      <Footer>
-        <FooterTab>
-          <Button full>
-            <Text>Footer</Text>
-          </Button>
-        </FooterTab>
-      </Footer>
+      this.props.visible ?
+        <FooterBase>
+          <FooterTab>
+            <Button full>
+              <Text>Footer</Text>
+            </Button>
+          </FooterTab>
+        </FooterBase>
+      : null
     )
   }
 }
+
+Footer.defaultProps = {
+  visible: true,
+}
+
+Footer.propTypes = {
+  visible: PropTypes.bool,
+}
+
+export default Footer

@@ -16,7 +16,7 @@ export default class Root extends Component {
         <Content>
           <NutrientList data={nutrientsData.nutrients}/>
         </Content>
-        <Footer />
+        <Footer visible={false} />
       </Container>
     )
   }
