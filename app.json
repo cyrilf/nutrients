@@ -7,7 +7,7 @@
     "primaryColor": "#dbf1ca",
     "loading": {
       "backgroundColor": "#dbf1ca",
-      "hideExponentText": "true"
+      "hideExponentText": true
     },
     "androidStatusBarColor": "#dbf1ca",
     "androidStatusBar": {
