@@ -5,7 +5,10 @@
       "plugins": [
         "transform-react-jsx-source",
         ["module-resolver", {
-          "root": ["./app"]
+          "root": ["./app"],
+          "alias": {
+            "native-base-theme": "./native-base-theme"
+          }
         }]
       ]
     }
