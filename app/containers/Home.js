@@ -1,12 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import NutrientList from 'components/list/NutrientList'
+import NutrientList from 'components/nutrients'
 
-const Home = ({ nutrients }) => <NutrientList nutrients={nutrients}/>
+// Rename 'ressources/data/nutrients.sample.json' file to 'ressources/data/nutrients.json'
+import nutrientsData from 'ressources/data/nutrients.json'
 
-Home.propTypes = {
-  nutrients: PropTypes.array.isRequired,
-}
+const Home = () => <NutrientList nutrients={nutrientsData.nutrients}/>
 
 export default Home
