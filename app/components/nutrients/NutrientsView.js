@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { View } from 'native-base'
 
 import { List } from 'components/list'
-import NutrientModal from 'components/NutrientModal/NutrientModal'
+import Modal from 'components/modal/Modal'
+import NutrientModalContent from './NutrientModal/NutrientModalContent'
 
 // Rename 'ressources/data/nutrients.sample.json' file to 'ressources/data/nutrients.json'
 import nutrientsData from 'ressources/data/nutrients.json'
@@ -25,10 +26,12 @@ class NutrientsView extends Component {
     return (
       <View>
         <List data={nutrientsData.nutrients} onItemPress={this.setSelectedItem} />
-        <NutrientModal
+        <Modal
           selectedItem={selectedItem}
           onClose={() => this.setSelectedItem(null)}
-        />
+        >
+          <NutrientModalContent item={selectedItem} />
+        </Modal>
       </View>
     )
   }
