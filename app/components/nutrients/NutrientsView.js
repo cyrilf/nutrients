@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View } from 'native-base'
 
-import NutrientList from './list/NutrientList'
+import { List } from 'components/list'
 import NutrientModal from 'components/NutrientModal/NutrientModal'
 
 // Rename 'ressources/data/nutrients.sample.json' file to 'ressources/data/nutrients.json'
@@ -24,7 +24,7 @@ class NutrientsView extends Component {
 
     return (
       <View>
-        <NutrientList nutrients={nutrientsData.nutrients} onItemPress={this.setSelectedItem}/>
+        <List data={nutrientsData.nutrients} onItemPress={this.setSelectedItem} />
         <NutrientModal
           selectedItem={selectedItem}
           onClose={() => this.setSelectedItem(null)}
