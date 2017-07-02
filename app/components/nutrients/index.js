@@ -1,2 +1,2 @@
-import NutrientList from 'list/NutrientList'
-export default NutrientList
+import NutrientsView from './NutrientsView'
+export default NutrientsView

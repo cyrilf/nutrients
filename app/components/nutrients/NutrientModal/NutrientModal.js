@@ -8,13 +8,13 @@ import NutrientModalContent from './NutrientModalContent'
 class NutrientModal extends Component {
 
   render() {
-    const { isVisible, selectedItem, onClose } = this.props
+    const { selectedItem, onClose } = this.props
 
     return (
       <Modal
         animationIn="slideInRight"
         animationOut="slideOutRight"
-        isVisible={isVisible}
+        isVisible={!!selectedItem}
         hideOnBack={true}>
         {!selectedItem ?
           <View /> :
@@ -26,7 +26,6 @@ class NutrientModal extends Component {
 }
 
 NutrientModal.propTypes = {
-  isVisible: PropTypes.bool.isRequired,
   selectedItem: PropTypes.object,
   onClose: PropTypes.func,
 }
