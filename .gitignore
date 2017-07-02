@@ -3,4 +3,5 @@ node_modules/
 npm-debug.*
 
 nutrients.json
+food.json
 story
