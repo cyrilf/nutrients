@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { List as NBList, View } from 'native-base'
 
-import ListItem from 'components/list/NutrientListItem'
+import ListItem from './ListItem'
 
 class List extends Component {
   constructor(props) {

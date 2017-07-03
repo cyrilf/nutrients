@@ -14,7 +14,7 @@ class Footer extends Component {
             </Button>
           </FooterTab>
         </FooterBase>
-      : null
+        : null
     )
   }
 }

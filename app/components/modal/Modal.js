@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { View } from 'react-native'
 import RNModal from 'react-native-modal'
 
 class Modal extends Component {
@@ -17,7 +18,7 @@ class Modal extends Component {
         {
           isVisible
             ? React.cloneElement(children, { ...this.props })
-            : null
+            : <View />
         }
       </RNModal>
     )

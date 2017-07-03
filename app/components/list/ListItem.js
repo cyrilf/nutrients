@@ -4,7 +4,7 @@ import { ListItem as NBListItem, Text } from 'native-base'
 
 const ListItem = ({item, onPress}) => {
   return (
-    <NBListItem button onPress={() => onPress(true, item)}>
+    <NBListItem button onPress={() => onPress(item)}>
       <Text>{item.name}</Text>
     </NBListItem>
   )

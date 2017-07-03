@@ -36,8 +36,8 @@ const NutrientModalContent = ({ item, onClose }) => {
 }
 
 NutrientModalContent.propTypes = {
-  item: PropTypes.object.isRequired,
-  onClose: PropTypes.func.isRequired,
+  item: PropTypes.object,
+  onClose: PropTypes.func,
 }
 
 // native-base doesn't support StyleSheet atm..

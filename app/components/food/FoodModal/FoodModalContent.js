@@ -31,8 +31,8 @@ const FoodModalContent = ({ item, onClose }) => {
 }
 
 FoodModalContent.propTypes = {
-  item: PropTypes.object.isRequired,
-  onClose: PropTypes.func.isRequired,
+  item: PropTypes.object,
+  onClose: PropTypes.func,
 }
 
 // native-base doesn't support StyleSheet atm..
