@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View } from 'native-base'
 
 import { List } from 'components/list'
-import Modal from 'components/modal/Modal'
-import FoodModalContent from './FoodModal/FoodModalContent'
 
 import foodData from 'ressources/data/food.json'
 
@@ -11,29 +10,24 @@ class FoodView extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { selectedItem: null }
-    this.setSelectedItem = this.setSelectedItem.bind(this)
+    this.openFoodDetailView = this.openFoodDetailView.bind(this)
   }
 
-  setSelectedItem(item = null) {
-    this.setState({ selectedItem: item })
+  openFoodDetailView(item = null) {
+    this.props.navigation.navigate('FoodDetail', { item })
   }
 
   render() {
-    const { selectedItem } = this.state
-
     return (
       <View>
-        <List data={foodData.food} onItemPress={this.setSelectedItem} />
-        <Modal
-          selectedItem={selectedItem}
-          onClose={() => this.setSelectedItem(null)}
-        >
-          <FoodModalContent item={selectedItem} />
-        </Modal>
+        <List data={foodData.food} onItemPress={this.openFoodDetailView} />
       </View>
     )
   }
+}
+
+FoodView.propTypes = {
+  navigation: PropTypes.object,
 }
 
 export default FoodView

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View } from 'native-base'
 import PropTypes from 'prop-types'
+import { View } from 'native-base'
 
 import { List } from 'components/list'
 
@@ -15,7 +15,7 @@ class NutrientsView extends Component {
   }
 
   openNutrientView(item = null) {
-    this.props.navigation.navigate('NutrientView', { item })
+    this.props.navigation.navigate('Nutrient', { item })
   }
 
   render() {

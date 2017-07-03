@@ -1,2 +1,2 @@
-import FoodView from './FoodView'
-export default FoodView
+import FoodNavigator from './FoodNavigator'
+export default FoodNavigator

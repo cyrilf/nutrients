@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { View, ScrollView, StyleSheet } from 'react-native'
 import { Text, Button } from 'native-base'
 
-class NutrientView extends React.Component {
-
+class FoodDetailView extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.item.name,
   })
@@ -17,15 +16,10 @@ class NutrientView extends React.Component {
       <View style={styles.card}>
         <View style={styles.cardContent}>
           <ScrollView>
-            { !!item.notes &&
-              <View>
-                <Text style={stylesNB.cardContentNoteText}>{item.notes}</Text>
-              </View>
-            }
-            { !!item.food && (
-              <View style={styles.cardContentFood}>
+            { !!item.nutrients && (
+              <View style={styles.cardContentNutrients}>
                 <ScrollView>
-                  { item.food.map((food) => <Text key={food} style={stylesNB.cardContentFoodText}>{food.trim()}</Text>) }
+                  { item.nutrients.map((nutrient) => <Text key={nutrient} style={stylesNB.cardContentNutrientsText}>{nutrient.trim()}</Text>) }
                 </ScrollView>
               </View>
             )}
@@ -41,7 +35,7 @@ class NutrientView extends React.Component {
   }
 }
 
-NutrientView.propTypes = {
+FoodDetailView.propTypes = {
   navigation: PropTypes.object,
 }
 
@@ -56,7 +50,7 @@ const stylesNB = {
     color: 'grey',
     paddingBottom: 20,
   },
-  cardContentFoodText: {
+  cardContentNutrientsText: {
     textAlign: 'center',
   },
 }
@@ -71,9 +65,9 @@ const styles = StyleSheet.create({
     padding: 20,
     flex: 1,
   },
-  cardContentFood: {
+  cardContentNutrients: {
     justifyContent: 'center',
   },
 })
 
-export default NutrientView
+export default FoodDetailView

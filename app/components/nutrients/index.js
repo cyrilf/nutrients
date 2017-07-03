@@ -1,2 +1,2 @@
-import NutrientsView from './NutrientsView'
-export default NutrientsView
+import NutrientsNavigator from './NutrientsNavigator'
+export default NutrientsNavigator

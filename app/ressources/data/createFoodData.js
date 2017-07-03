@@ -32,4 +32,7 @@ const result = JSON.stringify({ food: foodDataProcessed })
 const file = path.join(__dirname, 'food.json')
 fs.writeFileSync(file, result, 'utf-8')
 
+const keys = Object.keys(foodResult)
+keys.map((key) => console.log(key))
+
 console.log('\x1b[32m', '-- FOOD DATA: GENERATED.')
