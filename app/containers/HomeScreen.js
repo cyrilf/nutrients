@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import NutrientsView from 'components/nutrients'
 import Skeleton from 'components/anatomy/Skeleton'
@@ -10,14 +11,16 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    // const { navigate } = this.props.navigation
-
     return (
       <Skeleton>
-        <NutrientsView/>
+        <NutrientsView navigation={this.props.navigation}/>
       </Skeleton>
     )
   }
+}
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.object,
 }
 
 export default HomeScreen

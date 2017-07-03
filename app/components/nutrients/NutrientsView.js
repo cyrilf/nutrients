@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { View } from 'native-base'
+import PropTypes from 'prop-types'
 
 import { List } from 'components/list'
-import Modal from 'components/modal/Modal'
-import NutrientModalContent from './NutrientModal/NutrientModalContent'
 
 // Rename 'ressources/data/nutrients.sample.json' file to 'ressources/data/nutrients.json'
 import nutrientsData from 'ressources/data/nutrients.json'
@@ -12,29 +11,25 @@ class NutrientsView extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { selectedItem: null }
-    this.setSelectedItem = this.setSelectedItem.bind(this)
+    this.openNutrientView = this.openNutrientView.bind(this)
   }
 
-  setSelectedItem(item = null) {
-    this.setState({ selectedItem: item })
+  openNutrientView(item = null) {
+    this.props.navigation.navigate('NutrientView', { item })
   }
 
   render() {
-    const { selectedItem } = this.state
-
     return (
       <View>
-        <List data={nutrientsData.nutrients} onItemPress={this.setSelectedItem} />
-        <Modal
-          selectedItem={selectedItem}
-          onClose={() => this.setSelectedItem(null)}
-        >
-          <NutrientModalContent item={selectedItem} />
-        </Modal>
+        <List data={nutrientsData.nutrients} onItemPress={this.openNutrientView} />
       </View>
     )
   }
 }
+
+NutrientsView.propTypes = {
+  navigation: PropTypes.object,
+}
+
 
 export default NutrientsView

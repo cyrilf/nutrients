@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 import { View, ScrollView, StyleSheet } from 'react-native'
 import { Text, Button, H3 } from 'native-base'
 
-const NutrientModalContent = ({ item, onClose }) => {
+const NutrientView = ({ navigation }) => {
+
+  const { goBack } = navigation
+  const { item } = navigation.state.params
 
   return (
     <View style={styles.card}>
@@ -27,7 +30,7 @@ const NutrientModalContent = ({ item, onClose }) => {
         </ScrollView>
       </View>
       <View>
-        <Button full light onPress={onClose}>
+        <Button full light onPress={() => goBack()}>
           <Text>Go Back</Text>
         </Button>
       </View>
@@ -35,9 +38,8 @@ const NutrientModalContent = ({ item, onClose }) => {
   )
 }
 
-NutrientModalContent.propTypes = {
-  item: PropTypes.object,
-  onClose: PropTypes.func,
+NutrientView.propTypes = {
+  navigation: PropTypes.object,
 }
 
 // native-base doesn't support StyleSheet atm..
@@ -71,4 +73,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default NutrientModalContent
+export default NutrientView
