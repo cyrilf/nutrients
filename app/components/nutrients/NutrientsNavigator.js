@@ -1,11 +1,23 @@
 import { StackNavigator } from 'react-navigation'
 
-import NutrientsView from './NutrientsView'
-import NutrientView from './NutrientView'
+import NutrientsScreen from './NutrientsScreen'
+import NutrientDetailScreen from './NutrientDetailScreen'
 
 const NutrientsNavigator = StackNavigator({
-  Home: { screen: NutrientsView },
-  Nutrient: { screen: NutrientView },
+  Nutrients: {
+    screen: NutrientsScreen,
+    path: '/list',
+    navigationOptions: {
+      header: null,
+    },
+  },
+  NutrientDetail: {
+    screen: NutrientDetailScreen,
+    path: '/detail/:name',
+    navigationOptions: ({ navigation }) => ({
+      title: navigation.state.params.name,
+    }),
+  },
 })
 
 export default NutrientsNavigator

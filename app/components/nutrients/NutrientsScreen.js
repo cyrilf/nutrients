@@ -15,7 +15,7 @@ class NutrientsView extends Component {
   }
 
   openNutrientView(item = null) {
-    this.props.navigation.navigate('Nutrient', { item })
+    this.props.navigation.navigate('NutrientDetail', { item, name: item.name })
   }
 
   render() {

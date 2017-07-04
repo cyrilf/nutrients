@@ -1,18 +1,22 @@
-import { TabNavigator } from 'react-navigation'
+import { DrawerNavigator, StackNavigator } from 'react-navigation'
 
-import NutrientsNavigator from 'components/nutrients'
-import FoodNavigator from 'components/food'
+import HomeNavigator from './HomeNavigator'
 
-
-const Root = TabNavigator({
-  Nutrients: {
-    screen: NutrientsNavigator,
-  },
-  Food: {
-    screen: FoodNavigator,
+const HomeStackNavigator = StackNavigator({
+  Home: { screen: HomeNavigator },
+}, {
+  navigationOptions: {
+    header: null,
   },
 })
 
-
+const Root = DrawerNavigator({
+  Home: {
+    screen: HomeStackNavigator,
+    navigationOptions: {
+      drawerLabel: 'Home',
+    },
+  },
+})
 
 export default Root

@@ -4,11 +4,6 @@ import { View, ScrollView, StyleSheet } from 'react-native'
 import { Text, Button } from 'native-base'
 
 class NutrientView extends React.Component {
-
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.state.params.item.name,
-  })
-
   render () {
     const { goBack } = this.props.navigation
     const { item } = this.props.navigation.state.params

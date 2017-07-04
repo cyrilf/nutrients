@@ -14,7 +14,7 @@ class FoodView extends Component {
   }
 
   openFoodDetailView(item = null) {
-    this.props.navigation.navigate('FoodDetail', { item })
+    this.props.navigation.navigate('FoodDetail', { item, name: item.name })
   }
 
   render() {
