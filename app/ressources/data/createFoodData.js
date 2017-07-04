@@ -23,7 +23,7 @@ const processNutrients = nutrients => {
 const foodResult = processNutrients(nutrientsData.nutrients)
 const foodDataProcessed = Object.keys(foodResult).map((food) => {
   return {
-    name: food,
+    name: food.charAt(0).toUpperCase() + food.slice(1), // capitalize
     nutrients: foodResult[food].nutrients,
   }
 })
@@ -31,8 +31,5 @@ const foodDataProcessed = Object.keys(foodResult).map((food) => {
 const result = JSON.stringify({ food: foodDataProcessed })
 const file = path.join(__dirname, 'food.json')
 fs.writeFileSync(file, result, 'utf-8')
-
-const keys = Object.keys(foodResult)
-keys.map((key) => console.log(key))
 
 console.log('\x1b[32m', '-- FOOD DATA: GENERATED.')
