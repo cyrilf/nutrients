@@ -20,7 +20,7 @@ class NutrientsView extends Component {
 
   render() {
     return (
-      <View>
+      <View style={stylesNB.view}>
         <List data={nutrientsData.nutrients} onItemPress={this.openNutrientView} />
       </View>
     )
@@ -29,6 +29,12 @@ class NutrientsView extends Component {
 
 NutrientsView.propTypes = {
   navigation: PropTypes.object,
+}
+
+const stylesNB = {
+  view: {
+    backgroundColor: '#f5f5f5',
+  },
 }
 
 

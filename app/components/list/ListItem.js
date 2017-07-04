@@ -5,7 +5,7 @@ import { ListItem as NBListItem, Text } from 'native-base'
 const ListItem = ({item, onPress}) => {
   return (
     <NBListItem button onPress={() => onPress(item)}>
-      <Text>{item.name}</Text>
+      <Text style={stylesNB.item}>{item.name}</Text>
     </NBListItem>
   )
 }
@@ -13,6 +13,14 @@ const ListItem = ({item, onPress}) => {
 ListItem.propTypes = {
   item: PropTypes.object.isRequired,
   onPress: PropTypes.func,
+}
+
+const stylesNB = {
+  item: {
+    color: '#616161',
+    paddingTop: 7,
+    paddingBottom: 7,
+  },
 }
 
 export default ListItem

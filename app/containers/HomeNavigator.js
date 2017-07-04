@@ -21,6 +21,12 @@ const HomeNavigator = TabNavigator({
   },
 }, {
   tabBarPosition: 'bottom',
+  tabBarOptions: {
+    style: { backgroundColor: '#ffffff' },
+    activeTintColor: '#008e76',
+    inactiveTintColor: 'black',
+    indicatorStyle: { backgroundColor: '#00bfa5' },
+  },
 })
 
 export default HomeNavigator

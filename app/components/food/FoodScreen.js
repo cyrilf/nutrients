@@ -19,7 +19,7 @@ class FoodView extends Component {
 
   render() {
     return (
-      <View>
+      <View style={stylesNB.view}>
         <List data={foodData.food} onItemPress={this.openFoodDetailView} />
       </View>
     )
@@ -28,6 +28,12 @@ class FoodView extends Component {
 
 FoodView.propTypes = {
   navigation: PropTypes.object,
+}
+
+const stylesNB = {
+  view: {
+    backgroundColor: '#f5f5f5',
+  },
 }
 
 export default FoodView
