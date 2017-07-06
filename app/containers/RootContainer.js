@@ -10,7 +10,7 @@ const HomeStackNavigator = StackNavigator({
   },
 })
 
-const Root = DrawerNavigator({
+const RootContainer = DrawerNavigator({
   Home: {
     screen: HomeStackNavigator,
     navigationOptions: {
@@ -19,4 +19,4 @@ const Root = DrawerNavigator({
   },
 })
 
-export default Root
+export default RootContainer

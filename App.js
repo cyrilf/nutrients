@@ -1,7 +1,9 @@
 import Expo from 'expo'
 import React from 'react'
+import { Provider } from 'react-redux'
 
-import Root from 'containers/Root'
+import AppNavigator from 'AppNavigator'
+import createStore from 'store/store'
 
 export default class App extends React.Component {
   constructor() {
@@ -24,6 +26,10 @@ export default class App extends React.Component {
       return <Expo.AppLoading />
     }
 
-    return <Root />
+    return (
+      <Provider store={createStore()}>
+        <AppNavigator />
+      </Provider>
+    )
   }
 }
