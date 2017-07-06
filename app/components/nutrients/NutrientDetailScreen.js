@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import { View, ScrollView, StyleSheet } from 'react-native'
 import { Text, Button } from 'native-base'
 
-class NutrientView extends React.Component {
+import { List } from 'components/list'
+
+class NutrientDetailScreen extends React.Component {
   render () {
     const { goBack } = this.props.navigation
     const { item } = this.props.navigation.state.params
@@ -19,9 +21,7 @@ class NutrientView extends React.Component {
             }
             { !!item.food && (
               <View style={styles.cardContentFood}>
-                <ScrollView>
-                  { item.food.map((food) => <Text key={food} style={stylesNB.cardContentFoodText}>{food.trim()}</Text>) }
-                </ScrollView>
+                <List data={item.food} />
               </View>
             )}
           </ScrollView>
@@ -36,7 +36,7 @@ class NutrientView extends React.Component {
   }
 }
 
-NutrientView.propTypes = {
+NutrientDetailScreen.propTypes = {
   navigation: PropTypes.object,
 }
 
@@ -71,4 +71,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default NutrientView
+export default NutrientDetailScreen

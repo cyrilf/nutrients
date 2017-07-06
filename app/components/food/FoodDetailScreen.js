@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { View, ScrollView, StyleSheet } from 'react-native'
 import { Text, Button } from 'native-base'
 
+import { List } from 'components/list'
+
 class FoodDetailView extends React.Component {
   render () {
     const { goBack } = this.props.navigation
@@ -14,9 +16,7 @@ class FoodDetailView extends React.Component {
           <ScrollView>
             { !!item.nutrients && (
               <View style={styles.cardContentNutrients}>
-                <ScrollView>
-                  { item.nutrients.map((nutrient) => <Text key={nutrient} style={stylesNB.cardContentNutrientsText}>{nutrient.trim()}</Text>) }
-                </ScrollView>
+                <List data={item.nutrients} />
               </View>
             )}
           </ScrollView>

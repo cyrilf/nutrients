@@ -3,15 +3,17 @@ import PropTypes from 'prop-types'
 import { ListItem as NBListItem, Text } from 'native-base'
 
 const ListItem = ({item, onPress}) => {
+  const name = typeof item === 'string' ? item : item.name
+
   return (
-    <NBListItem button onPress={() => onPress(item)}>
-      <Text style={stylesNB.item}>{item.name}</Text>
+    <NBListItem button onPress={() => onPress && onPress(item)}>
+      <Text style={stylesNB.item}>{name}</Text>
     </NBListItem>
   )
 }
 
 ListItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
   onPress: PropTypes.func,
 }
 
