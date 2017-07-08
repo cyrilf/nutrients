@@ -10,7 +10,12 @@ class FoodDetailView extends React.Component {
   constructor(props) {
     super(props)
 
+    this.openFoodHome = this.openFoodHome.bind(this)
     this.openNutrientView = this.openNutrientView.bind(this)
+  }
+
+  openFoodHome() {
+    this.props.navigation.navigate('Food', {})
   }
 
   openNutrientView(item) {
@@ -21,7 +26,6 @@ class FoodDetailView extends React.Component {
   }
 
   render () {
-    const { goBack } = this.props.navigation
     const { item } = this.props.navigation.state.params
 
     return (
@@ -36,8 +40,8 @@ class FoodDetailView extends React.Component {
           </ScrollView>
         </View>
         <View>
-          <Button full light onPress={() => goBack()}>
-            <Text>Go Back</Text>
+          <Button full light onPress={this.openFoodHome}>
+            <Text>Close</Text>
           </Button>
         </View>
       </View>

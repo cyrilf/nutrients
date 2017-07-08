@@ -10,7 +10,12 @@ class NutrientDetailScreen extends React.Component {
   constructor(props) {
     super(props)
 
+    this.openNutrientsHome = this.openNutrientsHome.bind(this)
     this.openFoodView = this.openFoodView.bind(this)
+  }
+
+  openNutrientsHome() {
+    this.props.navigation.navigate('Nutrients', {})
   }
 
   openFoodView(item) {
@@ -22,7 +27,6 @@ class NutrientDetailScreen extends React.Component {
   }
 
   render () {
-    const { goBack } = this.props.navigation
     const { item } = this.props.navigation.state.params
 
     return (
@@ -42,8 +46,8 @@ class NutrientDetailScreen extends React.Component {
           </ScrollView>
         </View>
         <View>
-          <Button full light onPress={() => goBack()}>
-            <Text>Go Back</Text>
+          <Button full light onPress={this.openNutrientsHome}>
+            <Text>Close</Text>
           </Button>
         </View>
       </View>
