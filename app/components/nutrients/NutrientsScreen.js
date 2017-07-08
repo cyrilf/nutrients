@@ -14,7 +14,7 @@ class NutrientsView extends Component {
     this.openNutrientView = this.openNutrientView.bind(this)
   }
 
-  openNutrientView(item = null) {
+  openNutrientView(item = {}) {
     this.props.navigation.navigate('NutrientDetail', { item, name: item.name })
   }
 
@@ -37,5 +37,7 @@ const stylesNB = {
   },
 }
 
+const findNutrientByName = (name) => nutrientsData.nutrients.find((nutrient) => nutrient.name.toLowerCase() === name.toLowerCase())
 
 export default NutrientsView
+export { findNutrientByName }

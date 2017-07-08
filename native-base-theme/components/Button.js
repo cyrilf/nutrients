@@ -180,7 +180,7 @@ export default (variables = variable) => {
       "NativeBase.IconNB": {
         color: "#000"
       },
-      backgroundColor: "#f4f4f4"
+      backgroundColor: "#e1e2e1"
     },
 
     ".primary": {

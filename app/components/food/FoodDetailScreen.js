@@ -4,8 +4,22 @@ import { View, ScrollView, StyleSheet } from 'react-native'
 import { Text, Button } from 'native-base'
 
 import { List } from 'components/list'
+import { findNutrientByName } from 'components/nutrients/NutrientsScreen'
 
 class FoodDetailView extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.openNutrientView = this.openNutrientView.bind(this)
+  }
+
+  openNutrientView(item) {
+    if (typeof item === 'string') {
+      item = findNutrientByName(item)
+    }
+    item && this.props.navigation.navigate('NutrientDetail', { item, name: item.name })
+  }
+
   render () {
     const { goBack } = this.props.navigation
     const { item } = this.props.navigation.state.params
@@ -16,7 +30,7 @@ class FoodDetailView extends React.Component {
           <ScrollView>
             { !!item.nutrients && (
               <View style={styles.cardContentNutrients}>
-                <List data={item.nutrients} />
+                <List data={item.nutrients} onItemPress={this.openNutrientView} />
               </View>
             )}
           </ScrollView>
@@ -33,22 +47,6 @@ class FoodDetailView extends React.Component {
 
 FoodDetailView.propTypes = {
   navigation: PropTypes.object,
-}
-
-// native-base doesn't support StyleSheet atm..
-const stylesNB = {
-  cardHeaderTitle: {
-    padding: 20,
-    textAlign: 'center',
-  },
-  cardContentNoteText: {
-    textAlign: 'center',
-    color: 'grey',
-    paddingBottom: 20,
-  },
-  cardContentNutrientsText: {
-    textAlign: 'center',
-  },
 }
 
 const styles = StyleSheet.create({

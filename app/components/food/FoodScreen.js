@@ -13,7 +13,7 @@ class FoodView extends Component {
     this.openFoodDetailView = this.openFoodDetailView.bind(this)
   }
 
-  openFoodDetailView(item = null) {
+  openFoodDetailView(item = {}) {
     this.props.navigation.navigate('FoodDetail', { item, name: item.name })
   }
 
@@ -36,4 +36,7 @@ const stylesNB = {
   },
 }
 
+const findFoodByName = (name) => foodData.food.find((food) => food.name.toLowerCase() === name.toLowerCase())
+
 export default FoodView
+export { findFoodByName }

@@ -15,7 +15,7 @@ const NutrientsNavigator = StackNavigator({
     screen: NutrientDetailScreen,
     path: '/detail/:name',
     navigationOptions: ({ navigation }) => ({
-      title: navigation.state.params.name,
+      title: `${navigation.state.params.name} - Nutrient`,
     }),
   },
 })

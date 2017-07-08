@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 import { ListItem as NBListItem, Text } from 'native-base'
 
 const ListItem = ({item, onPress}) => {
-  const name = typeof item === 'string' ? item : item.name
+  let name
+  if (typeof item === 'object') {
+    name = item.name
+  } else if (typeof item === 'string') {
+    name = item
+  }
 
   return (
     <NBListItem button onPress={() => onPress && onPress(item)}>

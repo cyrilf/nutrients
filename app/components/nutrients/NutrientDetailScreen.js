@@ -4,8 +4,23 @@ import { View, ScrollView, StyleSheet } from 'react-native'
 import { Text, Button } from 'native-base'
 
 import { List } from 'components/list'
+import { findFoodByName } from 'components/food/FoodScreen'
 
 class NutrientDetailScreen extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.openFoodView = this.openFoodView.bind(this)
+  }
+
+  openFoodView(item) {
+    if (typeof item === 'string') {
+      item = findFoodByName(item)
+    }
+
+    item && this.props.navigation.navigate('FoodDetail', { item, name: item.name })
+  }
+
   render () {
     const { goBack } = this.props.navigation
     const { item } = this.props.navigation.state.params
@@ -21,7 +36,7 @@ class NutrientDetailScreen extends React.Component {
             }
             { !!item.food && (
               <View style={styles.cardContentFood}>
-                <List data={item.food} />
+                <List data={item.food} onItemPress={this.openFoodView} />
               </View>
             )}
           </ScrollView>
@@ -42,17 +57,10 @@ NutrientDetailScreen.propTypes = {
 
 // native-base doesn't support StyleSheet atm..
 const stylesNB = {
-  cardHeaderTitle: {
-    padding: 20,
-    textAlign: 'center',
-  },
   cardContentNoteText: {
     textAlign: 'center',
     color: 'grey',
     paddingBottom: 20,
-  },
-  cardContentFoodText: {
-    textAlign: 'center',
   },
 }
 

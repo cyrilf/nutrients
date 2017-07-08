@@ -15,7 +15,7 @@ const FoodNavigator = StackNavigator({
     screen: FoodDetailScreen,
     path: '/detail/:name',
     navigationOptions: ({ navigation }) => ({
-      title: navigation.state.params.name,
+      title: `${navigation.state.params.name} - Food`,
     }),
   },
 })
