@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ListItem as NBListItem, Text } from 'native-base'
+import { ListItem as NBListItem, Text, Icon } from 'native-base'
 
 const ListItem = ({item, onPress}) => {
   let name
@@ -10,9 +10,12 @@ const ListItem = ({item, onPress}) => {
     name = item
   }
 
+  const onPressAction = () => onPress(item)
+  const plantIcon = (item.priority && (<Icon name="sunny" style={{ color: '#00bfa5', fontSize: 12 }} />)) || null
+
   return (
-    <NBListItem button onPress={() => onPress && onPress(item)}>
-      <Text style={stylesNB.item}>{name}</Text>
+    <NBListItem button onPress={onPressAction}>
+      <Text style={stylesNB.item}>{name} </Text>{plantIcon}
     </NBListItem>
   )
 }
@@ -20,6 +23,10 @@ const ListItem = ({item, onPress}) => {
 ListItem.propTypes = {
   item: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
   onPress: PropTypes.func,
+}
+
+ListItem.defaultProps = {
+  onPress: () => { console.warn('Missing ListItem.onPress prop') },
 }
 
 const stylesNB = {
