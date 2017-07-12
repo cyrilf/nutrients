@@ -3,7 +3,8 @@
     {
       "name": "Calcium",
       "food": ["almonds", "apricots", "avocados"],
-      "notes": "Better raw"
+      "notes": "Better raw",
+      "priority": 1,
     },
     {
       "name": "Iodine",

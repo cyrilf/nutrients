@@ -12,6 +12,7 @@ class NutrientsView extends Component {
     super(props)
 
     this.openNutrientView = this.openNutrientView.bind(this)
+    this.nutrientsDataSorted = nutrientsData.nutrients.sort((a, b) => (b.priority || 0) - (a.priority || 0))
   }
 
   openNutrientView(item = {}) {
