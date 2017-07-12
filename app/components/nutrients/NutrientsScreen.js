@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { View } from 'native-base'
 
 import { List } from 'components/list'
+import Skeleton from 'components/anatomy/Skeleton'
 
 // Rename 'ressources/data/nutrients.sample.json' file to 'ressources/data/nutrients.json'
 import nutrientsData from 'ressources/data/nutrients.json'
@@ -13,7 +14,8 @@ class NutrientsView extends Component {
 
     this.openNutrientView = this.openNutrientView.bind(this)
     const priorityNutrients = getPriorityNutrients()
-    this.nutrientsDataSorted = [ ...priorityNutrients, ...nutrientsData.nutrients ]
+    const dividers = [{ name: 'Popular', divider: true }, { name: 'All', divider: true }]
+    this.nutrientsDataSorted = [ dividers[0], ...priorityNutrients, dividers[1], ...nutrientsData.nutrients ]
   }
 
   openNutrientView(item = {}) {
@@ -22,9 +24,11 @@ class NutrientsView extends Component {
 
   render() {
     return (
-      <View style={stylesNB.view}>
-        <List data={this.nutrientsDataSorted} onItemPress={this.openNutrientView} />
-      </View>
+      <Skeleton>
+        <View style={stylesNB.view}>
+          <List data={this.nutrientsDataSorted} onItemPress={this.openNutrientView} />
+        </View>
+      </Skeleton>
     )
   }
 }

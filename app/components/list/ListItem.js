@@ -12,9 +12,14 @@ const ListItem = ({item, onPress}) => {
 
   const onPressAction = () => onPress(item)
   const plantIcon = (item.priority && (<Icon name="sunny" style={{ color: '#00bfa5', fontSize: 12 }} />)) || null
+  const listItemProps = { onPress: onPressAction }
+  if (item.divider) {
+    listItemProps.itemDivider = true
+    listItemProps.onPress = () => {}
+  }
 
   return (
-    <NBListItem button onPress={onPressAction}>
+    <NBListItem {...listItemProps}>
       <Text style={stylesNB.item}>{name} </Text>{plantIcon}
     </NBListItem>
   )
