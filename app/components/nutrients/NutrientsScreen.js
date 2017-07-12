@@ -12,7 +12,8 @@ class NutrientsView extends Component {
     super(props)
 
     this.openNutrientView = this.openNutrientView.bind(this)
-    this.nutrientsDataSorted = nutrientsData.nutrients.sort((a, b) => (b.priority || 0) - (a.priority || 0))
+    const priorityNutrients = getPriorityNutrients()
+    this.nutrientsDataSorted = [ ...priorityNutrients, ...nutrientsData.nutrients ]
   }
 
   openNutrientView(item = {}) {
@@ -22,7 +23,7 @@ class NutrientsView extends Component {
   render() {
     return (
       <View style={stylesNB.view}>
-        <List data={nutrientsData.nutrients} onItemPress={this.openNutrientView} />
+        <List data={this.nutrientsDataSorted} onItemPress={this.openNutrientView} />
       </View>
     )
   }
@@ -39,6 +40,7 @@ const stylesNB = {
 }
 
 const findNutrientByName = (name) => nutrientsData.nutrients.find((nutrient) => nutrient.name.toLowerCase() === name.toLowerCase())
+const getPriorityNutrients = () => nutrientsData.nutrients.filter((nutrient) => nutrient.priority)
 
 export default NutrientsView
 export { findNutrientByName }
