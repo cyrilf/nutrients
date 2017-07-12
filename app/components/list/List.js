@@ -11,7 +11,7 @@ class List extends Component {
     this.renderRow = this.renderRow.bind(this)
   }
 
-  renderRow(item) { return <ListItem item={item} onPress={this.props.onItemPress} /> }
+  renderRow(item) { return (this.props.renderRow && this.props.renderRow(item)) || <ListItem item={item} onPress={this.props.onItemPress} /> }
 
   render() {
     return (
@@ -27,6 +27,11 @@ class List extends Component {
 List.propTypes = {
   data: PropTypes.array.isRequired,
   onItemPress: PropTypes.func,
+  renderRow: PropTypes.func,
+}
+
+List.defaultProps = {
+  onItemPress: () => { console.warn('Missing List.onItemPress prop') },
 }
 
 export default List
