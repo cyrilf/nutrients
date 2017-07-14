@@ -32,12 +32,17 @@ class NutrientDetailScreen extends React.Component {
     return (
       <View style={styles.card}>
         <View style={styles.cardContent}>
+          { !!item.description &&
+            <View style={stylesNB.cardContentDescription}>
+              <Text style={stylesNB.cardContentDescriptionText}>{item.description}</Text>
+            </View>
+          }
+          { !!item.notes &&
+            <View>
+              <Text style={stylesNB.cardContentNoteText}>{item.notes}</Text>
+            </View>
+          }
           <ScrollView>
-            { !!item.notes &&
-              <View>
-                <Text style={stylesNB.cardContentNoteText}>{item.notes}</Text>
-              </View>
-            }
             { !!item.food && (
               <View style={styles.cardContentFood}>
                 <List data={item.food} onItemPress={this.openFoodView} />
@@ -61,6 +66,17 @@ NutrientDetailScreen.propTypes = {
 
 // native-base doesn't support StyleSheet atm..
 const stylesNB = {
+  cardContentDescription: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#00bfa5',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  cardContentDescriptionText: {
+    textAlign: 'center',
+    paddingTop: 10,
+    paddingBottom: 20,
+  },
   cardContentNoteText: {
     textAlign: 'center',
     color: 'grey',

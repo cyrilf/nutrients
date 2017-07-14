@@ -3,7 +3,8 @@
     {
       "name": "Calcium",
       "food": ["almonds", "apricots", "avocados"],
-      "notes": "Better raw",
+      "description": "Growth, bone health and strength, blood coagulation, etc.",
+      "notes": "Some extra infos",
       "priority": 1,
     },
     {
