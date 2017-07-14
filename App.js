@@ -1,9 +1,13 @@
 import Expo from 'expo'
 import React from 'react'
 import { Provider } from 'react-redux'
+import { StyleProvider } from 'native-base'
 
 import AppNavigator from 'AppNavigator'
 import createStore from 'store/store'
+
+import getTheme from 'native-base-theme/components'
+import commonColor from 'native-base-theme/variables/commonColor'
 
 export default class App extends React.Component {
   constructor() {
@@ -28,7 +32,9 @@ export default class App extends React.Component {
 
     return (
       <Provider store={createStore()}>
-        <AppNavigator />
+        <StyleProvider style={getTheme(commonColor)}>
+          <AppNavigator />
+        </StyleProvider>
       </Provider>
     )
   }
