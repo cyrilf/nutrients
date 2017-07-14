@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { View } from 'native-base'
 
 import { List } from 'components/list'
-import Skeleton from 'components/anatomy/Skeleton'
 
 // Rename 'ressources/data/nutrients.sample.json' file to 'ressources/data/nutrients.json'
 import nutrientsData from 'ressources/data/nutrients.json'
@@ -24,11 +23,9 @@ class NutrientsView extends Component {
 
   render() {
     return (
-      <Skeleton>
-        <View style={stylesNB.view}>
-          <List data={this.nutrientsDataSorted} onItemPress={this.openNutrientView} />
-        </View>
-      </Skeleton>
+      <View style={stylesNB.view}>
+        <List data={this.nutrientsDataSorted} onItemPress={this.openNutrientView} />
+      </View>
     )
   }
 }
