@@ -1,17 +1,23 @@
 {
   "expo": {
-    "sdkVersion": "18.0.0",
-
     "name": "Nutrients",
+    "version": "0.0.1",
     "slug" : "nutrients",
-    "primaryColor": "#dbf1ca",
+    "sdkVersion": "18.0.0",
+    "ios": {
+      "bundleIdentifier": "com.cyrilf.nutrients"
+    },
+    "android": {
+      "package": "com.cyrilf.nutrients"
+    },
+    "primaryColor": "#008e76",
     "loading": {
-      "backgroundColor": "#dbf1ca",
+      "backgroundColor": "#008e76",
       "hideExponentText": true
     },
-    "androidStatusBarColor": "#dbf1ca",
+    "androidStatusBarColor": "#008e76",
     "androidStatusBar": {
-      "backgroundColor": "#dbf1ca"
+      "backgroundColor": "#5df2d6"
     }
   }
 }
