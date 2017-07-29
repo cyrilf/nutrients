@@ -3,7 +3,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { StyleProvider } from 'native-base'
 
-import AppNavigator from 'AppNavigator'
+import RootContainer from 'containers/RootContainer'
 import createStore from 'store/store'
 
 import getTheme from 'native-base-theme/components'
@@ -33,7 +33,8 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore()}>
         <StyleProvider style={getTheme(commonColor)}>
-          <AppNavigator />
+          {/* <AppNavigator /> */}
+          <RootContainer />
         </StyleProvider>
       </Provider>
     )

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, ScrollView, StyleSheet } from 'react-native'
-import { Text, Button } from 'native-base'
 
 import { List } from 'components/list'
 import { findNutrientByName } from 'components/nutrients/NutrientsScreen'
@@ -10,12 +9,7 @@ class FoodDetailView extends React.Component {
   constructor(props) {
     super(props)
 
-    this.openFoodHome = this.openFoodHome.bind(this)
     this.openNutrientView = this.openNutrientView.bind(this)
-  }
-
-  openFoodHome() {
-    this.props.navigation.navigate('Food', {})
   }
 
   openNutrientView(item) {
@@ -38,11 +32,6 @@ class FoodDetailView extends React.Component {
               </View>
             )}
           </ScrollView>
-        </View>
-        <View>
-          <Button full light onPress={this.openFoodHome}>
-            <Text>Close</Text>
-          </Button>
         </View>
       </View>
     )
