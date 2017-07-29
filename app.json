@@ -1,21 +1,26 @@
 {
   "expo": {
     "name": "Nutrients",
+    "description": "Where do you get your Nutrients from?",
     "version": "0.0.1",
     "slug" : "nutrients",
+    "icon": "public/assets/icon.png",
     "sdkVersion": "18.0.0",
     "ios": {
       "bundleIdentifier": "com.cyrilf.nutrients"
     },
     "android": {
-      "package": "com.cyrilf.nutrients"
+      "package": "com.cyrilf.nutrients",
+      "versionCode": 1,
+      "icon": "public/assets/icon.png"
     },
+    "scheme": "nutrients",
     "primaryColor": "#008e76",
     "loading": {
-      "backgroundColor": "#008e76",
-      "hideExponentText": true
+      "backgroundColor": "#00bfa5",
+      "hideExponentText": true,
+      "icon": "public/assets/icon.png"
     },
-    "androidStatusBarColor": "#008e76",
     "androidStatusBar": {
       "backgroundColor": "#5df2d6"
     }
